@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>汉得智能驱动云首页</title>
+    <link href="{$Think.const.HSD_PATH}bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="{$Think.const.HSD_PATH}bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="{$Think.const.HSD_PATH}bootstrap/css/bootstrap-slider.css" rel="stylesheet">
+    <link href="{$Think.const.HSD_PATH}css/login/style.css" rel="stylesheet" />
+    <script src="{$Think.const.HSD_PATH}script/jquery.min.js"></script>
+    <script src="{$Think.const.HSD_PATH}bootstrap/js/bootstrap.min.js"></script>
+    <script src="{$Think.const.HSD_PATH}bootstrap/js/bootstrap-slider.js"></script>
+    <script src="{$Think.const.HSD_PATH}turn/turn.min.js"></script>
+    <script src="{$Think.const.HSD_PATH}js/login/login.js"></script>
+    <script type="text/javascript">
+        $(window).ready(function() {
+            $('#showpages').turn({
+                display: 'single',
+                acceleration: true,
+                gradients: true,
+                autoCenter:true,
+                elevation:0,
+                when: {
+                    turned: function(e, page) {
+                    }
+                }
+            });
+        });
+        $(window).bind('keydown', function(e){
+            if (e.keyCode==37 || e.keyCode==39){
+                if (e.keyCode==37)
+                {
+                    $('#showpages').turn('previous');
+                }
+                else if (e.keyCode==39){
+                    $('#showpages').turn('next');
+                }
+                var currentPage=$("#showpages").turn("page");
+                $('#ex1').slider('setValue', currentPage);
+            }
+        });
+        $(function () {
+            initSlider();//load slider
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <a class="navbar-brand" href="#home">汉得智能驱动云</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="javascript:turnIndex()">主页</a></li>
+                <li><a href="javascript:turnAbout()">关于</a></li>
+                <li><a href="javascript:turnService()">服务</a></li>
+                <li><a href="javascript:turnCase()">案例</a></li>
+                <li><a href="#contact" data-toggle="modal" data-target="#contact">联系</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Section: 主体 -->
+<div id="home" class="home">
+    <div style="width: 100%;height:100%;">
+        <!-- 展示区域 -->
+        <div style="width:60%;height:100%;float:left;">
+            <!-- 分享 -->
+            <div style="width:100%;height:10%;"></div>
+            <!-- 主题 -->
+            <div style="width:100%;height: 20%;background-color:white;" id="showpages">
+                <!-- 第一页 主页介绍 -->
+                <div class="allscreem">
+                    <div class="book">
+                        <div class="leftbook">
+                            <div class="bookallscreem">
+                                <!-- 幻灯片 -->
+                                <div class="carousel slide" id="mycarousel" data-ride="carousel" data-interval="3000" style="width:100%;height:100%;">
+                                    <ol class="carousel-indicators">
+                                        <li class="active" data-slide-to="0" data-target="#mycarousel">
+                                        </li>
+                                        <li data-slide-to="1" data-target="#mycarousel">
+                                        </li>
+                                        <li data-slide-to="2" data-target="#mycarousel">
+                                        </li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img alt="" src="{$Think.const.HSD_PATH}img/login/2.jpg"/>
+                                        </div>
+                                        <div class="item">
+                                            <img alt="" src="{$Think.const.HSD_PATH}img/login/3.jpg"/>
+                                        </div>
+                                        <div class="item">
+                                            <img alt="" src="{$Think.const.HSD_PATH}img/login/5.jpg"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book">
+                        <div class="rightbook">
+                            <div class="bookallscreem">
+                                <div class="jumbotron" style="width: 100%;height: 100%;color: #761c19">
+                                    <div style="width: 80%;height: 20%;margin-top: 2%">
+                                        <h2 style="font-family: 'Arial Black';margin-top: 0%;text-align: center">汉得智能驱动云</h2>
+                                        <p style="font-size:15px; font-family: Arial;text-align: center;">
+                                            HAND Smart Driver in China
+                                        </p>
+                                    </div>
+                                    <div style="width: 80%;height:50%;margin-left: 5%;">
+                                        <p style="color: #0f0f0f;font-size:18px;font-family: Arial ;margin-top:0%;font-weight: bold;text-indent:2em;">
+                                            汉得智能驱动云是汉得智能制造团队开发的高效设备云驱动,致力于打造真正中国制造的智能设备时代。丰富的项目经验，优质的大客户群，是中国制造2025国家重点实验项目的合作伙伴。</p>
+                                    </div>
+                                    <div style="width: 80%;height: 28%;margin-left: 10%;margin-top: 20%">
+                                        <a class="btn btn-danger btn-large btn-block" href="http://www.hand-china.com/">走进汉得</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第2页  关于 -->
+                <div class="allscreem" >
+                    <div class="book">
+                        <div class="leftbook">
+                            <div class="bookallscreem">
+                                <div class="jumbotron">
+                                <div class="row">
+                                    <div class="col-md-12" style="width: 80%; height: 20%;margin-left: 15%;">
+                                        <img src="/hsd/application/index/img/index/book/插图13.jpg" style="width: 90%;height: 80%">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 " style="margin-top: 8px">
+                                        <button type="button" class="btn btn-inverse" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-leaf" aria-hidden="true"><i style="font-family: 华文楷体;font-weight: bold">产品定向</i></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1" style="margin-bottom: 10%">
+                                        <p style="font-family: 幼圆;font-weight: bold;font-size: medium">
+                                            HSD 致力于打造纯中国制造的设备数据采集应用与控制一体化驱动云，不依赖opc任何第三方软件，拥有自行编写庞大的数据通路底层协议集群，几乎覆盖市场上所有主流品牌系列，非标设备可扩展，实现真正中国制造2025。
+                                        </p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="book">
+                        <div class="rightbook">
+                            <div class="bookallscreem">
+                                <div class="jumbotron">
+                                    <div class="row">
+                                        <div class="col-md-12" style="width: 80%;height: 30%">
+                                            <img src="/hsd/application/index/img/index/book/team.jpg" style="width: 90%;height: 80%">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 " style="margin-top: 8px;margin-top: 10%">
+                                            <button type="button" class="btn btn-inverse" aria-label="Left Align">
+                                                <span class="glyphicon glyphicon-user" aria-hidden="true"><i style="font-family: 华文楷体;font-weight: bold;margin-left: 5%" >研发团队</i></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <br/>
+                                            <p style="font-family: 幼圆;font-weight: bold;font-size: medium">
+                                                HSD 是汉得智能制造事业部的智能制造研究室设计制造的设备云驱动产品，团队拥有资历深厚的设备控制器工程师，熟练的自动化工程师，高级程序架构师，高级算法设计程序人员，数据库设计师，高质量运维团队。
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第3页 服务类型和广度 -->
+                <div class="allscreem">
+                    <div class="book">
+                        <div class="leftbook">
+                            <div class="bookallscreem">
+                                <div class="jumbostron">
+                                <div class="row">
+                                    <div class="col-md-12" style=";width:100%;height: 100%">
+                                        <div class="col-md-6 col-md-offset-3" style="margin-top: 2%">
+                                            <p style="font-size: medium;font-weight: bold;font-family: 'Bell MT';color: #222222">服务类型和范围</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 " style="margin-top: 8px;margin-top: 2%;margin-bottom: 2%">
+                                                <button type="button" class="btn btn-inverse" aria-label="Left Align">
+                                                    <span class="glyphicon glyphicon-user" aria-hidden="true"><i style="font-family: 华文楷体;font-weight: bold;margin-left: 5%" >品牌系列</i></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <img src="/hsd/application/index/img/index/book/品牌系列.png" style="width: 100%;height: 100%">
+                                        <div class="row" style="margin-top: 15%">
+                                            <div class="col-md-4 " style="margin-top: 8px;margin-top: 2%;margin-bottom: 2%">
+                                                <button type="button" class="btn btn-inverse" aria-label="Left Align">
+                                                    <span class="glyphicon glyphicon-user" aria-hidden="true"><i style="font-family: 华文楷体;font-weight: bold;margin-left: 5%" >底层协议系列</i></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <img src="/hsd/application/index/img/index/book/协议.png" style="width: 100%;height: 100%">
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book">
+                        <div class="rightbook">
+                            <div class="bookallscreem">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="btn btn-large btn-danger">
+                                            <span class="glyphicon glyphicon-calendar"><i style="margin-left:5px;font-family: 'High Tower Text'">PLC设备控制器</i></span>
+                                        </label>
+                                        <br/>
+                                        <p style="font-family: 隶书">
+                                            PLC驱动集群是HSD的重要组成部分，品牌系列覆盖市场上主流的plc产品，西门子，三菱，松下，罗克韦尔，欧姆龙等品牌系列的数据协议均已实现，
+                                            国产或者非标也覆盖了很大范围，台达，中控也囊在其中，plc集群大，范围广，系列齐全，可自由扩展。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="btn btn-large btn-danger btn-rounded">
+                                            <span class="glyphicon glyphicon-calendar"><i style="margin-left:5px;font-family: 'High Tower Text'">CNC数控机床</i></span>
+                                        </label>
+                                        <br/>
+                                        <p style="font-family: 隶书">
+                                            CNC数控机床是HSD独立研发的驱动集群系统，功能复杂，操作简单。涵盖包括fanuc，三菱等在内的大品牌，稳定性高，舒适性好，最直接的协议采集和控制，程序和绘图上传修改简单，安全性高
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="btn btn-large btn-danger">
+                                            <span class="glyphicon glyphicon-calendar"><i style="margin-left:5px;font-family: 'High Tower Text'">AGV导引车</i></span>
+                                        </label>
+                                        <br/>
+                                        <p style="font-family: 隶书">
+                                            AGV导引车系统，汉得智能制造团队自主研发，适合AGV小车，叉车多种车间内和车间之间的线路规划和导航续航。拥有标准化线路优化算法和可扩展定制化地形线路开发算法，让小车更智能，让生产更灵活。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="btn btn-large btn-danger">
+                                            <span class="glyphicon glyphicon-calendar"><i style="margin-left:5px;font-family: 'High Tower Text'">智能仓库WMS</i></span>
+                                        </label>
+                                        <p style="font-family: 隶书">
+                                            立体仓库系统，HSD自主研发，从货架到输送机再到控制器管理，实现一整套控制操作的智能化。
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第4页 案例福耀&贸联 -->
+                <div class="allscreem">
+                    <div class="book">
+                        <div class="leftbook">
+                            <div class="bookallscreem1">
+                                <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#case">
+                                    成功案例
+                                </button>
+                                <div style="width: 100%;height: 100%">
+                                    <br/>
+                                    <br/><br/>
+                                    <div class="row">
+                                        <div class="col-md-12 col-md-offset-1">
+                                            <img src="/hsd/application/index/img/index/book/fy2.jpg" style="width: 80%;height: 80%">
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <p style="font-weight: bold;font-family: 幼圆;color: #a94442">福耀集团是全球范围内汽车玻璃生产巨头，是国家计划中国制造2025首批重点实验项目。汉得信息携手福耀以高质量，高标准实现设备的数字化和智能化，打造中国制造智能工厂。福耀玻璃项目一期从福清总部开始，逐渐扩散到二期的重庆，长春，武汉等全国所有事业部，获得广大认可。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book">
+                        <div class="rightbook">
+                            <div class="bookallscreem">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <img src="/hsd/application/index/img/index/book/mldz.jpg" alt="贸联集团" style="width: 90%;height: 85%">
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <br/>
+                                        <br/>
+                                        <p style="font-weight: bold;font-family: 幼圆;color: #a94442">贸联集团经营全球范围内的网络连接器材，是国际连接解决方案的领导供货商。汉得信息智能制造团队与贸联电子合作，实现贸联电子设备的智能化集成，加强贸联电子在设备信息化，智能化方面上高效管理。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第五页 案例新能源 -->
+                <div class="allscreem">
+                    <div class="book">
+                        <div class="leftbook">
+                            <div class="bookallscreem1">
+                                <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#case">
+                                    成功案例
+                                </button>
+                                <div style="width: 100%;height: 100%">
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-md-12 col-md-offset-1">
+                                            <img src="/hsd/application/index/img/index/book/xny.jpeg" style="width: 80%;height: 80%">
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <p style="font-weight: bold;font-family: 幼圆;color: #a94442">
+                                                新能源集团是苹果，三星各大手机品牌的供应商，国内生产手机电池的巨头。汉得智能制造团队携手ATL，在工厂智能化，车间智能化，设备智能化做出了突破。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book">
+                        <div class="rightbook">
+                            <div class="bookallscreem">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <img src="/hsd/application/index/img/index/book/mldz.jpg" alt="贸联集团" style="width: 90%;height: 85%">
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <br/>
+                                        <br/>
+                                        <p style="font-weight: bold;font-family: 幼圆;color: #a94442">贸联集团经营全球范围内的网络连接器材，是国际连接解决方案的领导供货商。汉得信息智能制造团队与贸联电子合作，实现贸联电子设备的智能化集成，加强贸联电子在设备信息化，智能化方面上高效管理。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 翻页 -->
+            <div style="width:85%;height:8%;margin-left: 10%">
+                <input id="ex1" data-slider-id='ex1Slider' type="text" style="width: 99%;"
+                       data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="1"/>
+            </div>
+        </div>
+        <!-- 用户登入区域 -->
+        <div style="width:40%;height:100%;float:right;">
+            <div id="loginForm" style="width: 350px;height: 300px;margin-left: 30%;margin-top: 30%">
+                <div style="width: 90%;height:70%;float:left;margin: 10% 5% 0% 5%;">
+                    <table class="allscreem">
+                        <tr class="formtr"></tr>
+                        <tr class="formtr">
+                            <td class="allscreem">
+                                <input type="text" class="allscreem" id="txtUserName" placeholder="用户名/手机号/邮箱" />
+                            </td>
+                        </tr>
+                        <tr class="formtr"></tr>
+                        <tr class="formtr">
+                            <td class="allscreem">
+                                <input type="password" class="allscreem" id="txtPwd" placeholder="用户密码" />
+                            </td>
+                        </tr>
+                        <tr class="formtr"></tr>
+                        <tr>
+                            <td class="allscreem">
+                                <button type="submit" class="btn btn-info btn-lg btn-block" style="width: 100%;height:80%;">登入</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div style="margin-bottom: 0%;font-family: Consolas;font-size: large;">
+                <p style="text-align: center;margin-top: 10%;color: #0f0f0f">上海汉得信息智能制造研究室</p>
+                <p style="text-align: center;margin-top: 5%;color: #0f0f0f">©Copyright 2016 - HSD. All rights reserved.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal案例 -->
+<div class="modal fade" id="case" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">汉得合作伙伴</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/hsd/application/index/img/index/book/fy2.jpg" alt="福耀集团"style="width:90%;height: 80%">
+                    </div>
+                    <div class="col-md-6">
+                        <p>福耀集团是全球范围内汽车玻璃生产巨头，是国家计划中国制造2025首批重点实验项目。汉得信息携手福耀以高质量，高标准实现设备的数字化和智能化，打造中国制造智能工厂。福耀玻璃项目一期从福清总部开始，逐渐扩散到二期的重庆，长春，武汉等全国所有事业部，获得广大认可。
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <br/>
+                        <br/>
+
+                        <p>贸联集团经营全球范围内的网络连接器材，是国际连接解决方案的领导供货商。汉得信息智能制造团队与贸联电子合作，实现贸联电子设备的智能化集成，加强贸联电子在设备信息化，智能化方面上高效管理。</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="/hsd/application/index/img/index/book/mldz.jpg"style="width: 90%;height:90%;">
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/hsd/application/index/img/index/book/xny.jpeg" alt="新能源" style="width: 90%;height: 90%">
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            新能源集团是苹果，三星各大手机品牌的供应商，国内生产手机电池的巨头。汉得智能制造团队携手ATL，在工厂智能化，车间智能化，设备智能化做出了突破。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">I Know</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Model服务-->
+<div class="modal fade" id="service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">汉得合作伙伴</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/hsd/application/index/img/index/book/fy2.jpg" alt="福耀集团"style="width:90%;height: 80%">
+                    </div>
+                    <div class="col-md-6">
+                        <p>福耀集团是全球范围内汽车玻璃生产巨头，是国家计划中国制造2025首批重点实验项目。汉得信息携手福耀以高质量，高标准实现设备的数字化和智能化，打造中国制造智能工厂。福耀玻璃项目一期从福清总部开始，逐渐扩散到二期的重庆，长春，武汉等全国所有事业部，获得广大认可。
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <br/>
+                        <br/>
+
+                        <p>贸联集团经营全球范围内的网络连接器材，是国际连接解决方案的领导供货商。汉得信息智能制造团队与贸联电子合作，实现贸联电子设备的智能化集成，加强贸联电子在设备信息化，智能化方面上高效管理。</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="/hsd/application/index/img/index/book/mldz.jpg"style="width: 90%;height:90%;">
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/hsd/application/index/img/index/book/xny.jpeg" alt="新能源" style="width: 90%;height: 90%">
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">I Know</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">汉得合作伙伴</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <img src="/hsd/application/index/img/index/svg/chat.svg" alt="联系"style="width:75%;height: 75%;margin-left: 5%" >
+                        <button class="btn btn-small btn-info">phone Number</button>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                        <img src="/hsd/application/index/img/index/svg/clocks.svg" alt="联系"style="width:75%;height: 75%">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                        <img src="/hsd/application/index/img/index/book/weichat.jpg" alt="微信"style="width:80%;height: 80%">
+                    </div>
+
+                    <!--<div class="col-md-5 ">-->
+                    <!--<p>福耀集团是全球范围内汽车玻璃生产巨头，是国家计划中国制造2025首批重点实验项目。汉得信息携手福耀以高质量，高标准实现设备的数字化和智能化，打造中国制造智能工厂。福耀玻璃项目一期从福清总部开始，逐渐扩散到二期的重庆，长春，武汉等全国所有事业部，获得广大认可。-->
+                    <!--</p>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">I Know</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

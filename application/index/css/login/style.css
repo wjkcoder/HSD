@@ -1,0 +1,94 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'microsoft yahei',Arial,sans-serif;
+}
+#home {
+    background: url(../../img/login/bg1.jpg) no-repeat center center fixed;
+    display: table;
+    height: 90%;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#home.home{
+    padding: 4% 2% 4% 2%;
+}
+#loginForm {
+    background-color: rgba(0, 206, 209, 0.5);
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    width:60%;height:50%;margin: 25% 15% 0% 25%;
+}
+
+.book{
+    -webkit-box-shadow:0 0 30px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:0 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow:0 0 30px rgba(0, 0, 0,0.5);
+    width:50%;height:100%;float: left;
+}
+#showpages{
+    -webkit-box-shadow:0 0 40px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:0 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow:0 0 30px rgba(0, 0, 0,0.5);
+    margin-left: 5%;
+    margin-top: 3%;
+}
+.pa{
+    width:100%;height:100%;background-color: white;
+}
+.pas{
+    margin-left: 4%;margin-top: 2%;
+}
+.lp{
+    -webkit-box-shadow:0 0 30px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:0 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow:0 0 30px rgba(0, 0, 0,0.5);
+
+    width: 49%;height: 100%;float: left
+}
+.rp{
+    -webkit-box-shadow:0 0 30px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:0 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow:0 0 30px rgba(0, 0, 0,0.5);
+
+    width: 49%;height: 100%;float: left;
+}
+
+.leftbook{
+    width:94%;height:96%;margin:2% 4% 2% 2%;
+}
+.rightbook{
+    width:94%;height:96%;margin:2% 2% 2% 4%;
+}
+.allscreem{
+    width:100%;height:100%;float: left;
+}
+.bookallscreem{
+    width:100%;height:100%;float: left;background-color: white;
+}
+.bookallscreem1{
+    width:100%;height:100%;float: left;background-color: white;
+}
+.formtr{
+    width:100%;height:15%;
+}
+#ex1Slider .slider-selection {
+    background: #8283FF;
+}
+#contact.aaa{
+    background-color: #81bfde;
+}
+.book-top{
+    width: 80%;height: 20%;float: left;
+}
+.book-mid{
+    width: 80%;height: 50%;float: left;
+}
+.book-bottom{
+    width: 80%;height: 25%;float: left;
+}

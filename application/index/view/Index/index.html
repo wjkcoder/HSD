@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>汉得智能驱动云首页</title>
+    <link href="{$Think.const.HSD_PATH}bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="{$Think.const.HSD_PATH}bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="{$Think.const.HSD_PATH}bootstrap/css/bootstrap-slider.css" rel="stylesheet">
+    <link href="{$Think.const.HSD_PATH}css/login/style.css" rel="stylesheet" />
+    <script src="{$Think.const.HSD_PATH}script/jquery.min.js"></script>
+    <script src="{$Think.const.HSD_PATH}bootstrap/js/bootstrap.min.js"></script>
+    <script src="{$Think.const.HSD_PATH}bootstrap/js/bootstrap-slider.js"></script>
+    <script src="{$Think.const.HSD_PATH}turn/turn.min.js"></script>
+    <script src="{$Think.const.HSD_PATH}js/login/login.js"></script>
+    <script type="text/javascript">
+        $(window).ready(function() {
+            $('#showpages').turn({
+                display: 'single',
+                acceleration: true,
+                gradients: true,
+                autoCenter:true,
+                elevation:0,
+                when: {
+                    turned: function(e, page) {
+                    }
+                }
+            });
+        });
+        $(window).bind('keydown', function(e){
+            if (e.keyCode==37 || e.keyCode==39){
+                if (e.keyCode==37)
+                {
+                    $('#showpages').turn('previous');
+                }
+                else if (e.keyCode==39){
+                    $('#showpages').turn('next');
+                }
+                var currentPage=$("#showpages").turn("page");
+                $('#ex1').slider('setValue', currentPage);
+            }
+        });
+        $(function () {
+            initSlider();//load slider
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <a class="navbar-brand" href="#home">汉得智能驱动云</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#home">主页</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#service" data-toggle="modal" data-target="#service">服务</a></li>
+                <li><a href="#case" data-toggle="modal" data-target="#case">案例</a></li>
+                <li><a href="#contact" data-toggle="modal" data-target="#contact">联系</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Section: 主体 -->
+<div id="home" class="home">
+        <!-- 展示区域 -->
+        <div style="width:60%;height:100%;float:left;">
+            <div id="showpages" style="width: 100%;height: 35%">
+                   <div class="pa">
+                       <div class="lp">
+                           <div style="margin-left: 4%;margin-top: 2%;">
+                               <div class="row">
+                                   <div class="col-md-12">
+                                       <img src="/hsd/application/index/img/index/book/team.jpg" style="width: 90%;height: 80%">
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-4 " style="margin-top: 8px;margin-top: 15%">
+                                       <button type="button" class="btn btn-inverse" aria-label="Left Align">
+                                           <span class="glyphicon glyphicon-user" aria-hidden="true"><i style="font-family: 华文楷体;font-weight: bold;margin-left: 5%" >研发团队</i></span>
+                                       </button>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-10 col-md-offset-1">
+                                       <br/>
+                                       <p style="font-family: 幼圆;font-weight: bold;font-size: medium">
+                                           HSD 是汉得智能制造事业部的智能制造研究室设计制造的设备云驱动产品，团队拥有资历深厚的设备控制器工程师，熟练的自动化工程师，高级程序架构师，高级算法设计程序人员，数据库设计师，高质量运维团队。
+
+                                       </p>
+                                   </div>
+                               </div>
+                           </div>
+
+                       </div>
+                       <div class="rp">
+                           <div style="margin-left: 4%;margin-top: 2%;">
+                               <div class="row">
+                                   <div class="col-md-12">
+                                       <img src="/hsd/application/index/img/index/book/插图13.jpg" style="width: 90%;height: 80%">
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-4 " style="margin-top: 8px">
+                                       <button type="button" class="btn btn-inverse" aria-label="Left Align">
+                                           <span class="glyphicon glyphicon-leaf" aria-hidden="true"><i style="font-family: 华文楷体;font-weight: bold">产品定向</i></span>
+                                       </button>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-10 col-md-offset-1">
+                                       <br/>
+                                       <p style="font-family: 幼圆;font-weight: bold;font-size: medium">
+                                           HSD 致力于打造纯中国制造的设备数据采集应用与控制一体化驱动云，不依赖opc任何第三方软件，拥有自行编写庞大的数据通路底层协议集群，几乎覆盖市场上所有主流品牌系列，非标设备可扩展，实现真正中国制造2025。
+                                       </p>
+                                   </div>
+                               </div>
+                           </div>
+
+                       </div>
+                   </div>
+                   <div class="pa">
+                       <div class="lp">
+                          <div class="pas">
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="col-md-6 col-md-offset-3" style="margin-bottom: 5%">
+                                          <p style="font-size: medium;font-weight: bold;font-family: 'Bell MT';color: #222222">服务类型和范围</p>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-4 " style="margin-top: 8px;margin-top: 2%;margin-bottom: 2%">
+                                              <button type="button" class="btn btn-inverse" aria-label="Left Align">
+                                                  <span class="glyphicon glyphicon-user" aria-hidden="true"><i style="font-family: 华文楷体;font-weight: bold;margin-left: 5%" >品牌系列</i></span>
+                                              </button>
+                                          </div>
+                                      </div>
+                                      <img src="/hsd/application/index/img/index/book/品牌系列.png" style="width: 100%;height: 100%">
+                                      <div class="row" style="margin-top: 15%">
+                                          <div class="col-md-4 " style="margin-top: 8px;margin-top: 2%;margin-bottom: 2%">
+                                              <button type="button" class="btn btn-inverse" aria-label="Left Align">
+                                                  <span class="glyphicon glyphicon-user" aria-hidden="true"><i style="font-family: 华文楷体;font-weight: bold;margin-left: 5%" >底层协议系列</i></span>
+                                              </button>
+                                          </div>
+                                      </div>
+                                      <img src="/hsd/application/index/img/index/book/协议.png" style="width: 100%;height: 100%">
+                                  </div>
+                              </div>
+                          </div>
+                       </div>
+                       <div class="rp">
+                           <p>第4页</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                       </div>
+                   </div>
+                   <div class="pa">
+                       <div class="lp">
+                           <p>第5页</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                       </div>
+                       <div class="rp">
+                           <p>第er页</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                       </div>
+                   </div>
+                   <div class="pa">
+                       <div class="lp">
+                           <p>第7页</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                       </div>
+                       <div class="rp">
+                           <p>第8页</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                           <p>1234</p>
+                       </div>
+                   </div>
+               </div>
+           <!-- 翻页 -->
+           <div style="width:100%;height:2%;"></div>
+           <div style="width:100%;height:8%;">
+               <input id="ex1" data-slider-id='ex1Slider' type="text" style="width: 99%;"
+                      data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="1"/>
+           </div>
+        </div>
+        <!-- 用户登入区域 -->
+        <div style="width:40%;height:100%;float:right;">
+            <div id="loginForm" style="width: 60%;height: 60%">
+                <div style="width: 90%;height:70%;float:left;margin: 10% 5% 0% 5%;">
+                     <table class="allscreem">
+                         <tr class="formtr"></tr>
+                         <tr class="formtr">
+                             <td class="allscreem">
+                                 <input type="text" class="allscreem" id="txtUserName" placeholder="用户名/手机号/邮箱" />
+                             </td>
+                         </tr>
+                         <tr class="formtr"></tr>
+                         <tr class="formtr">
+                             <td class="allscreem">
+                                 <input type="password" class="allscreem" id="txtPwd" placeholder="用户密码" />
+                             </td>
+                         </tr>
+                         <tr class="formtr"></tr>
+                         <tr>
+                             <td class="allscreem">
+                                 <button type="submit" class="btn btn-info btn-lg btn-block" style="width: 100%;height:80%;">登入</button>
+                             </td>
+                         </tr>
+                     </table>
+                </div>
+            </div>
+            <div style="margin-bottom: 0%;font-family: Consolas;font-size: large;">
+                <p style="text-align: center;margin-top: 10%;color: #0f0f0f">上海汉得信息智能制造研究室</p>
+                <p style="text-align: center;margin-top: 5%;color: #0f0f0f">©Copyright 2016 - HSD. All rights reserved.</p>
+
+            </div>
+        </div>
+</div>
+
+
+
+<!-- Modal案例 -->
+<div class="modal fade" id="case" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">汉得合作伙伴</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="/hsd/application/index/img/index/book/fy2.jpg" alt="福耀集团"style="width:90%;height: 80%">
+                        </div>
+                        <div class="col-md-6">
+                            <p>福耀集团是全球范围内汽车玻璃生产巨头，是国家计划中国制造2025首批重点实验项目。汉得信息携手福耀以高质量，高标准实现设备的数字化和智能化，打造中国制造智能工厂。福耀玻璃项目一期从福清总部开始，逐渐扩散到二期的重庆，长春，武汉等全国所有事业部，获得广大认可。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <br/>
+                            <br/>
+
+                            <p>贸联集团经营全球范围内的网络连接器材，是国际连接解决方案的领导供货商。汉得信息智能制造团队与贸联电子合作，实现贸联电子设备的智能化集成，加强贸联电子在设备信息化，智能化方面上高效管理。</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="/hsd/application/index/img/index/book/mldz.jpg"style="width: 90%;height:90%;">
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="/hsd/application/index/img/index/book/xny.jpeg" alt="新能源" style="width: 90%;height: 90%">
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">I Know</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Model服务-->
+<div class="modal fade" id="service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">汉得合作伙伴</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/hsd/application/index/img/index/book/fy2.jpg" alt="福耀集团"style="width:90%;height: 80%">
+                    </div>
+                    <div class="col-md-6">
+                        <p>福耀集团是全球范围内汽车玻璃生产巨头，是国家计划中国制造2025首批重点实验项目。汉得信息携手福耀以高质量，高标准实现设备的数字化和智能化，打造中国制造智能工厂。福耀玻璃项目一期从福清总部开始，逐渐扩散到二期的重庆，长春，武汉等全国所有事业部，获得广大认可。
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <br/>
+                        <br/>
+
+                        <p>贸联集团经营全球范围内的网络连接器材，是国际连接解决方案的领导供货商。汉得信息智能制造团队与贸联电子合作，实现贸联电子设备的智能化集成，加强贸联电子在设备信息化，智能化方面上高效管理。</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="/hsd/application/index/img/index/book/mldz.jpg"style="width: 90%;height:90%;">
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/hsd/application/index/img/index/book/xny.jpeg" alt="新能源" style="width: 90%;height: 90%">
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">I Know</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">汉得合作伙伴</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <img src="/hsd/application/index/img/index/svg/chat.svg" alt="联系"style="width:75%;height: 75%;margin-left: 5%" >
+                        <button class="btn btn-small btn-info">phone Number</button>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                        <img src="/hsd/application/index/img/index/svg/clocks.svg" alt="联系"style="width:75%;height: 75%">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                        <img src="/hsd/application/index/img/index/book/weichat.jpg" alt="微信"style="width:80%;height: 80%">
+                    </div>
+
+                    <!--<div class="col-md-5 ">-->
+                        <!--<p>福耀集团是全球范围内汽车玻璃生产巨头，是国家计划中国制造2025首批重点实验项目。汉得信息携手福耀以高质量，高标准实现设备的数字化和智能化，打造中国制造智能工厂。福耀玻璃项目一期从福清总部开始，逐渐扩散到二期的重庆，长春，武汉等全国所有事业部，获得广大认可。-->
+                        <!--</p>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">I Know</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

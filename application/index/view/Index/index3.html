@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>汉得智能驱动云首页</title>
+    <link href="{$Think.const.HSD_PATH}bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="{$Think.const.HSD_PATH}bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="{$Think.const.HSD_PATH}bootstrap/css/bootstrap-slider.css" rel="stylesheet">
+    <link href="{$Think.const.HSD_PATH}css/login/style.css" rel="stylesheet" />
+    <script src="{$Think.const.HSD_PATH}script/jquery.min.js"></script>
+    <script src="{$Think.const.HSD_PATH}bootstrap/js/bootstrap.min.js"></script>
+    <script src="{$Think.const.HSD_PATH}bootstrap/js/bootstrap-slider.js"></script>
+    <script src="{$Think.const.HSD_PATH}turn/turn.min.js"></script>
+    <script src="{$Think.const.HSD_PATH}js/login/login.js"></script>
+    <script type="text/javascript">
+        $(window).ready(function() {
+            $('#showpages').turn({
+                display: 'single',
+                acceleration: true,
+                gradients: true,
+                autoCenter:true,
+                elevation:0,
+                when: {
+                    turned: function(e, page) {
+                    }
+                }
+            });
+        });
+        $(window).bind('keydown', function(e){
+            if (e.keyCode==37 || e.keyCode==39){
+                if (e.keyCode==37)
+                {
+                    $('#showpages').turn('previous');
+                }
+                else if (e.keyCode==39){
+                    $('#showpages').turn('next');
+                }
+                var currentPage=$("#showpages").turn("page");
+                $('#ex1').slider('setValue', currentPage);
+            }
+        });
+        $(function () {
+            initSlider();//load slider
+        });
+    </script>
+</head>
+<body>
+<!-- Section: 主体 -->
+<div style="height: 100%;width:100%">
+                <div id="showpages" style="width: 55%;height: 80%">
+                    <div class="pa">
+                        <div class="lp">
+                            <p>第一页</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                        </div>
+                        <div class="rp">
+                            <p>第2页</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                        </div>
+                    </div>
+                    <div class="pa">
+                        <div class="lp">
+                            <p>第3页</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                        </div>
+                        <div class="rp">
+                            <p>第4页</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                        </div>
+                    </div>
+                    <div class="pa">
+                        <div class="lp">
+                            <p>第5页</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                        </div>
+                        <div class="rp">
+                            <p>第er页</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                        </div>
+                    </div>
+                    <div class="pa">
+                        <div class="lp">
+                            <p>第7页</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                        </div>
+                        <div class="rp">
+                            <p>第8页</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                            <p>1234</p>
+                        </div>
+                    </div>
+                </div>
+</div>
+
+
+</body>
+</html>
