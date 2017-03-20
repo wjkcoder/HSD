@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSD主界面</title>
+    <link rel="stylesheet" type="text/css" href="{$Think.const.HSD_PATH}bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{$Think.const.HSD_PATH}css/tabulator/jquery-ui.theme.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{$Think.const.HSD_PATH}css/main/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="{$Think.const.HSD_PATH}css/main/demo.css" />
+    <link rel="stylesheet" type="text/css" href="{$Think.const.HSD_PATH}css/main/component.css" />
+    <link rel="stylesheet" type="text/css" href="{$Think.const.HSD_PATH}css/main/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="{$Think.const.HSD_PATH}script/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{$Think.const.HSD_PATH}script/jquery-ui-11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/modernizr.custom.js"></script>
+    <script type="text/javascript" src="{$Think.const.HSD_PATH}js/tabulator/tabulator.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul id="gn-menu" class="gn-menu-main">
+                <li class="gn-trigger">
+                    <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                    <nav class="gn-menu-wrapper">
+                        <div class="gn-scroller" id="menudis">
+                            <ul class="gn-menu">
+                                <!--<li class="gn-search-item">-->
+                                    <li>
+                                    <!--<input placeholder="" class="gn-search">-->
+                                    <a class="gn-icon gn-icon-cog">系统项目管理</a>
+                                    <ul class="gn-submenu">
+                                        {volist name="menu1" id="menu1" key="key"}
+                                        <li><a href="#" style="text-indent: 15px">{$menu1.menu_des}</a></li>
+                                        {/volist}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="gn-icon gn-icon-download">系统基础设置</a>
+                                    <ul class="gn-submenu">
+                                        {volist name="menu2" id="menu2" key="key"}
+                                            <li><a href="#" style="text-indent: 15px">{$menu2.menu_des}</a></li>
+                                        {/volist}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="gn-icon gn-icon-cog">系统控制器设置</a>
+                                    <ul class="gn-submenu">
+                                        {volist name="menu3" id="menu3" key="key"}
+                                        <li><a href="#" style="text-indent: 15px">{$menu3.menu_des}</a></li>
+                                        {/volist}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="gn-icon gn-icon-help">系统查询与报表</a>
+                                    <ul class="gn-submenu">
+                                        {volist name="menu4" id="menu4" key="key"}
+                                        <li><a href="#" style="text-indent: 15px">{$menu4.menu_des}</a></li>
+                                        {/volist}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="gn-icon gn-icon-archive">客户菜单</a>
+                                    <ul class="gn-submenu">
+                                        {volist name="menu5" id="menu5" key="key"}
+                                        <li><a href="#" style="text-indent: 15px">{$menu5.menu_des}</a></li>
+                                        {/volist}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="gn-icon gn-icon-archive">客户查询与报表</a>
+                                    <ul class="gn-submenu">
+                                        {volist name="menu6" id="menu6" key="key"}
+                                        <li><a href="#" style="text-indent: 15px">{$menu6.menu_des}</a></li>
+                                        {/volist}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div><!-- /gn-scroller -->
+                    </nav>
+                </li>
+                <li><a href="#">项目管理</a></li>
+                <li><a class="codrops-icon codrops-icon-prev" href="#"><span>福耀玻璃</span></a></li>
+                <li><a class="codrops-icon codrops-icon-drop" href="#"><span>雪花啤酒</span></a></li>
+                <li><a class="codrops-icon codrops-icon-drop" href="#"><span>当前用户</span>&nbsp<span>{:session('userName')}</span></a></li>
+
+            </ul>
+        </div>
+        <div class="row" style="margin-top: 10%">
+            <div class="col-md-6">
+                <div id="grid"></div>
+            </div>
+            <!--<div class="col-md-6">-->
+                <!--<div id="grid2">-->
+                    <!--<img src="/hsd/application/index/img/index/book/fy2.jpg" style="width: 90%;height: 90%">-->
+                <!--</div></div>-->
+        </div>
+    </div>
+    <!--{:var_dump($menu1)}-->
+    <div class="row">
+        <div class="col-md-9 col-md-offset-3">
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-info btn-block" onclick="btnAdd()">Add</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-danger btn-block">Delete</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" onclick="btnRefresh()">Refresh</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-success">Save</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-warning">Reset</button>
+                </div>
+
+            </div>
+            <div id="ajaxExample"></div>
+        </div>
+    </div>
+</div>
+<script src="{$Think.const.HSD_PATH}js/main/classie.js"></script>
+<script src="{$Think.const.HSD_PATH}js/main/gnmenu.js"></script>
+<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/main.js"></script>
+</body>
+
+</html>
