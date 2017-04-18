@@ -25,17 +25,16 @@
     <link rel="stylesheet" href="{$Think.const.HSD_PATH}js/main/vendor/morris/morris.css">
     <link rel="stylesheet" href="{$Think.const.HSD_PATH}js/main/vendor/jvectormap/jquery-jvectormap-2.0.3.css">
     <!-- Neptune CSS -->
-    <link rel="stylesheet" href="{$Think.const.HSD_PATH}css/tabulator/tabulator.css">
+    <link rel="stylesheet" href="{$Think.const.HSD_PATH}js/main/vendor/jsgrid/dist/jsgrid.css">
+    <link rel="stylesheet" href="{$Think.const.HSD_PATH}js/main/vendor/jsgrid/dist/jsgrid-theme.min.css">
+
 
     <link rel="stylesheet" href="{$Think.const.HSD_PATH}js/main/html/css/core.css">
     <link rel="stylesheet" href="{$Think.const.HSD_PATH}js/main/html/css/style.css">
     <link rel="stylesheet" href="{$Think.const.HSD_PATH}css/tabulator/jquery-ui.theme.min.css">
-    <link rel="stylesheet" href="{$Think.const.HSD_PATH}css/tabulator/tabulator.css">
-
     <link rel="stylesheet" href="{$Think.const.HSD_PATH}js/main/cj/alert/BeAlert.css">
-
 </head>
-<body class="large-sidebar fixed-sidebar fixed-header content-appear">
+<body class="large-sidebar fixed-sidebar fixed-header skin-4">
 <div class="wrapper">
 
 
@@ -410,6 +409,7 @@
         </div>
     </div>
 
+
     <!--Template options -->
     <div class="template-options custom-scroll custom-scroll-dark">
         <div class="to-toggle"><i class="ti-settings"></i></div>
@@ -521,7 +521,7 @@
 
     <!--Header -->
     <div class="site-header">
-        <nav class="navbar navbar-light">
+        <nav class="navbar navbar-dark">
             <ul class="nav navbar-nav">
                 <li class="nav-item m-r-1 hidden-lg-up">
                     <a class="nav-link collapse-button" href="#">
@@ -682,17 +682,70 @@
     </div>
 
     <div class="site-content" style="background: white">
-        <div class="container-fluid">
-            <div class="box box-block bg-white"></div>
+        <div class="container-fluid" style="background-image: url({$Think.const.HSD_PATH}img/photos-1/s1.jpg)">
+            <div class="content-area p-y-1">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h4 style="font-family:Arial,Helvetica,sans-serif;font-size:100%;">数据类型</h4>
+                        <ol class="breadcrumb no-bg m-b-1">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">DataType</li>
+                        </ol>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="row">
+                                <div class="btn btn-block btn-success" style="height: 50px"><span style="height: 100%"><i class="fa fa-plus-square" style="height: 60%"></i>ADD</span></div>
+                                <div>
+                                    <div class="modal static-modal custom-modal-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="cm-img img-cover" style="background-image: url(img/photos-1/5.jpg);">
+                                                    <div class="gradient gradient-success">
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" id="fg_code" placeholder="快码编码">
+                                                                    <div class="input-group-addon"><i class=""></i></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" id="fg_des" placeholder="快码描述">
+                                                                    <div class="input-group-addon"><i class="zmdi zmdi-hospital-alt"></i></div>
+                                                                </div>
+                                                            </div>
+
+                                                            <button class="btn btn-danger btn-block" onclick="addGp()">Save</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="box box-block bg-white">
+                                <h5 class="m-b-1">DataType</h5>
+                                <div id="jsGrid-basic"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <!-- Footer -->
         <footer class="footer">
         </footer>
     </div>
-
 </div>
-
 <!-- Vendor JS -->
+
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/jquery/jquery-1.12.3.min.js"></script>
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/tether/js/tether.min.js"></script>
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -701,28 +754,19 @@
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/jscrollpane/mwheelIntent.js"></script>
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/jscrollpane/jquery.jscrollpane.min.js"></script>
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/waves/waves.min.js"></script>
-<!--<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/chartist/chartist.min.js"></script>-->
+<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/chartist/chartist.min.js"></script>
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/switchery/dist/switchery.min.js"></script>
-<!--<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/flot/jquery.flot.min.js"></script>-->
-<!--<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/flot/jquery.flot.resize.min.js"></script>-->
-<!--<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>-->
-<!--<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/CurvedLines/curvedLines.js"></script>-->
-<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/TinyColor/tinycolor.js"></script>
-<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/sparkline/jquery.sparkline.min.js"></script>
-<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/raphael/raphael.min.js"></script>
-<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/morris/morris.min.js"></script>
-<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/jvectormap/jquery-jvectormap-world-mill.js"></script>
-<script type="text/javascript" src="{$Think.const.HSD_PATH}script/jquery-ui-11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/jsgrid/dist/jsgrid.min.js"></script>
+<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/vendor/jsgrid/demos/db.js"></script>
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/cj/alert/BeAlert.js"></script>
 
-<script type="text/javascript" src="{$Think.const.HSD_PATH}js/tabulator/tabulator.js"></script>
 
 <!-- Neptune JS -->
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/html/js/app.js"></script>
-<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/html/js/demo.js"></script>
 <script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/html/js/index.js"></script>
-<script type="text/javascript" src="{$Think.const.HSD_PATH}js/main/sys_menu.js"></script>
+
+<script type="text/javascript" src="{$Think.const.HSD_PATH}js/menu/ctr_rw.js"></script>
+
 
 
 </body>

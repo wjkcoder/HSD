@@ -11,6 +11,7 @@ namespace app\common\model;
 use think\Model;
 class HsdPrjUser extends Model
 {
+    protected $pk='prj_user_id';
     static public function login($username, $password)
     {// 验证用户是否存在
         $map = array('user_name' => $username);
@@ -22,7 +23,7 @@ class HsdPrjUser extends Model
                 // 登录
                 session('userName',$HsdPrjUser->getData('user_name'));
                 session('userId',$HsdPrjUser->getData('prj_user_id'));
-
+                session('prjId',$HsdPrjUser->getData('prj_id'));
                 return true;
             }
         }

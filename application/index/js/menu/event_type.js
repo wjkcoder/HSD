@@ -1,0 +1,137 @@
+
+var flag=[{Id:"Y",Name:"Y"},{Id:"N",Name:"N"}];
+$(document).ready(function() {
+    jsGrid.setDefaults({
+        tableClass: "jsgrid-table table table-striped table-hover"
+    }), jsGrid.setDefaults("text", {
+        _createTextBox: function() {
+            return $("<input>").attr("type", "text").attr("class", "form-control input-sm")
+        }
+    }), jsGrid.setDefaults("number", {
+        _createTextBox: function() {
+            return $("<input>").attr("type", "number").attr("class", "form-control input-sm")
+        }
+    }), jsGrid.setDefaults("textarea", {
+        _createTextBox: function() {
+            return $("<input>").attr("type", "textarea").attr("class", "form-control")
+        }
+    }), jsGrid.setDefaults("control", {
+        _createGridButton: function(cls, tooltip, clickHandler) {
+            var grid = this._grid;
+            return $("<button>").addClass(this.buttonClass).addClass(cls).attr({
+                type: "button",
+                title: tooltip
+            }).on("click", function(e) {
+                clickHandler(grid, e)
+            })
+        }
+    }), jsGrid.setDefaults("select", {
+        _createSelect: function() {
+            var $result = $("<select>").attr("class", "form-control form-control-sm"),
+                valueField = this.valueField,
+                textField = this.textField,
+                selectedIndex = this.selectedIndex;
+            return $.each(this.items, function(index, item) {
+                var value = valueField ? item[valueField] : index,
+                    text = textField ? item[textField] : item,
+                    $option = $("<option>").attr("value", value).text(text).appendTo($result);
+                $option.prop("selected", selectedIndex === index)
+            }), $result
+        }
+    }),
+
+        function() {
+            $("#jsGrid-basic").jsGrid({
+                height: "390px",
+                width: "98%",
+                filtering: true,
+                editing: true,
+                inserting: true,
+                sorting: true,
+                paging: true,
+                autoload: true,
+                pageSize: 5,
+                pageButtonCount: 5,
+                onItemUpdated:function(grid,row,item,itemIndex,previousItem){
+                    //$("#jsGrid-basic").jsGrid("refresh");
+
+                },
+                //deleteConfirm: function(){alert('Are u sure?')},
+                controller: {
+                    loadData: function(filter){
+                        return $.ajax({
+                            type:"GET",
+                            url:"http://localhost/hsd/public/Index.php/index/action/eventTypeQuery",
+                            dataType:"json"
+                        });
+                    },
+                    insertItem: function(item){
+                        return $.ajax({
+                            type: "POST",
+                            url: "http://localhost/hsd/public/Index.php/index/action/eventTypeInsert",
+                            data: {data:item},
+                            dataType:"text",
+                            success:function(data){
+                                if(data=='y'){
+                                    alert("新增成功");
+                                    $("#jsGrid-basic").jsGrid("refresh");
+                                }else if(data=='e'){alert('主键已存在');}else alert("123");
+                            }
+                        });
+                    },
+                    updateItem: function(item){
+                        return $.ajax({
+                            type: "POST",
+                            url: "http://localhost/hsd/public/Index.php/index/action/eventTypeUpdate",
+                            data: {data:item},
+                            dataType:"text",
+                            success:function(data){
+                                if(data=='y'){
+                                    $("#jsGrid-basic").jsGrid("refresh");
+                                    //alert("Update Successfully");
+                                }else if(data=='e'){alert('主键已存在');}else if(data=='n') alert("Failed to Update!");
+                            }
+                        });
+                    },
+                    deleteItem: function(item){
+                        return $.ajax({
+                            type: "POST",
+                            url: "http://localhost/hsd/public/Index.php/index/action/eventTypeDelete",
+                            data: {data:item},
+                            dataType:"text",
+                            success:function(data){
+                                if(data=='y'){alert("Delete Successfully");}
+                            }
+                        });
+                    }
+                },
+                fields: [
+                    { name: "event_type_id",title:"事件类型ID", type: "text" ,visible:false},
+                    { name: "event_type_code",title:"类型编码", type: "text",validate: "required"},
+                    //{ name: "fastcode_group_des",title:"描述",type:"select",items:ad,valueField:""},
+                    { name: "event_type_des", type: "text", title: "类型描述", sorting: false ,validate: "required"},
+                    { name: "enable_flag", type: "select", title: "Flag", items:flag,textField:"Name",valueField:"Id",sorting: false,validate: "required" },
+                    { type: "control", editButton:false  }
+                ]
+            });
+        }();
+
+});
+
+function addGp(){
+    var fg_code=$('#fg_code').val();
+    var fg_des=$('#fg_des').val();
+
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/hsd/public/Index.php/index/action/fgAdd",
+        data:{fg_code:fg_code,fg_des:fg_des},
+        dataType:'text',
+        success:function(data){
+            if(data=='y'){
+                alert('Save Successfully!');
+            }else alert('Failed');
+        }
+    });
+
+}

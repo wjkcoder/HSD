@@ -36,40 +36,7 @@
     });
     $("#prjGrid").tabulator("setData");
     $("#prjGrid").tabulator("setPage", 1);
-
-
-
-
-
 //动态生成用户菜单(点击ul>a隐藏展示)
-//$('.gn-menu >li > a').click(function(e)
-//{
-//    e.preventDefault();
-//    var submenu = $(this).siblings('ul');
-//    var li = $(this).parents('li');
-//    var submenus = $('#menudis  ul li ul');
-//    var submenus_parents = $('#menudis  ul li');
-//    if(li.hasClass('open'))
-//    {
-//        if(($(window).width() > 768) || ($(window).width() < 479)) {
-//            submenu.slideUp();
-//        } else {
-//            submenu.fadeOut(250);
-//        }
-//        li.removeClass('open');
-//    } else
-//    {
-//        if(($(window).width() > 768) || ($(window).width() < 479)) {
-//            submenus.slideUp();
-//            submenu.slideDown();
-//        } else {
-//            submenus.fadeOut(250);
-//            submenu.fadeIn(250);
-//        }
-//        submenus_parents.removeClass('open');
-//        li.addClass('open');
-//    }
-//});
 //表格按钮事件响应
 function btnAdd(){
     $("#prjGrid").tabulator("addRow","",true);
@@ -126,23 +93,10 @@ function btnSave(){
     var data;
     //var id;
     data=$('#prjGrid').tabulator('getSelectedData');
-    //prj_id=data[0].prj_id;
-    //prj_code=data[1].prj_code;
-    //prj_des=data[2].prj_des;
-
-    //alert(prj_des);
-
-    //$.each(data,function(index,content){
-    //    alert(index+'::'+content.prj_id+content.prj_des);
-    //});
-
-    //_typeof (data);
     $.ajax({
         type: 'POST',
         url: 'http://localhost/hsd/public/Index.php/index/action/test',
-        //data: {prj_id:prj_id,prj_code:prj_code,prj_des:prj_des},
         data: {data:data},
-
         success: function(res){
             if(res==='y'){
                alert("Succeed to Save!");
@@ -152,7 +106,6 @@ function btnSave(){
     });
     
 }
-
 //测试函数
 function btnTest(){
     //alert('test123456');

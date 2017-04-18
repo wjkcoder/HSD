@@ -16,7 +16,122 @@ class Index extends Controller
         return $this->fetch('login');
     }
     public function prj(){
-        return $this->fetch('index2');
+
+        //拼接sql
+        $sql1="select hpu.prj_user_id,hpu.user_name,hsm.module_des,hsmm.menu_des,hsmm.menu_url
+                         from hsd_prj_menu hpm,
+                              hsd_prj_role hpr,
+                              hsd_prj_role_menu hprm,
+                              hsd_prj_user hpu,
+                              hsd_prj_user_role hpur,
+                              hsd_sys_module_menu hsmm,
+                              hsd_sys_module hsm
+                        where hpm.prj_menu_id=hprm.prj_menu_id
+                        and   hpr.prj_role_id=hprm.prj_role_id
+                        and   hpr.prj_role_id=hpur.prj_role_id
+                        and   hpu.prj_user_id=hpur.prj_user_id
+                        and   hpm.menu_id=hsmm.menu_id
+                        and   hsm.module_id=hsmm.module_id
+                        and   hsm.module_id=1
+                        and   hpu.user_name='".session('userName')."'";
+        $sql2="select hpu.prj_user_id,hpu.user_name,hsm.module_des,hsmm.menu_des,hsmm.menu_url
+                         from hsd_prj_menu hpm,
+                              hsd_prj_role hpr,
+                              hsd_prj_role_menu hprm,
+                              hsd_prj_user hpu,
+                              hsd_prj_user_role hpur,
+                              hsd_sys_module_menu hsmm,
+                              hsd_sys_module hsm
+                        where hpm.prj_menu_id=hprm.prj_menu_id
+                        and   hpr.prj_role_id=hprm.prj_role_id
+                        and   hpr.prj_role_id=hpur.prj_role_id
+                        and   hpu.prj_user_id=hpur.prj_user_id
+                        and   hpm.menu_id=hsmm.menu_id
+                        and   hsm.module_id=hsmm.module_id
+                        and   hsm.module_id=2
+                        and   hpu.user_name='".session('userName')."'";
+        $sql3="select hpu.prj_user_id,hpu.user_name,hsm.module_des,hsmm.menu_des,hsmm.menu_url
+                         from hsd_prj_menu hpm,
+                              hsd_prj_role hpr,
+                              hsd_prj_role_menu hprm,
+                              hsd_prj_user hpu,
+                              hsd_prj_user_role hpur,
+                              hsd_sys_module_menu hsmm,
+                              hsd_sys_module hsm
+                        where hpm.prj_menu_id=hprm.prj_menu_id
+                        and   hpr.prj_role_id=hprm.prj_role_id
+                        and   hpr.prj_role_id=hpur.prj_role_id
+                        and   hpu.prj_user_id=hpur.prj_user_id
+                        and   hpm.menu_id=hsmm.menu_id
+                        and   hsm.module_id=hsmm.module_id
+                        and   hsm.module_id=3
+                        and   hpu.user_name='".session('userName')."'";
+        $sql4="select hpu.prj_user_id,hpu.user_name,hsm.module_des,hsmm.menu_des,hsmm.menu_url
+                         from hsd_prj_menu hpm,
+                              hsd_prj_role hpr,
+                              hsd_prj_role_menu hprm,
+                              hsd_prj_user hpu,
+                              hsd_prj_user_role hpur,
+                              hsd_sys_module_menu hsmm,
+                              hsd_sys_module hsm
+                        where hpm.prj_menu_id=hprm.prj_menu_id
+                        and   hpr.prj_role_id=hprm.prj_role_id
+                        and   hpr.prj_role_id=hpur.prj_role_id
+                        and   hpu.prj_user_id=hpur.prj_user_id
+                        and   hpm.menu_id=hsmm.menu_id
+                        and   hsm.module_id=hsmm.module_id
+                        and   hsm.module_id=4
+                        and   hpu.user_name='".session('userName')."'";
+        $sql5="select hpu.prj_user_id,hpu.user_name,hsm.module_des,hsmm.menu_des,hsmm.menu_url
+                         from hsd_prj_menu hpm,
+                              hsd_prj_role hpr,
+                              hsd_prj_role_menu hprm,
+                              hsd_prj_user hpu,
+                              hsd_prj_user_role hpur,
+                              hsd_sys_module_menu hsmm,
+                              hsd_sys_module hsm
+                        where hpm.prj_menu_id=hprm.prj_menu_id
+                        and   hpr.prj_role_id=hprm.prj_role_id
+                        and   hpr.prj_role_id=hpur.prj_role_id
+                        and   hpu.prj_user_id=hpur.prj_user_id
+                        and   hpm.menu_id=hsmm.menu_id
+                        and   hsm.module_id=hsmm.module_id
+                        and   hsm.module_id=5
+                        and   hpu.user_name='".session('userName')."'";
+        $sql6="select hpu.prj_user_id,hpu.user_name,hsm.module_des,hsmm.menu_des,hsmm.menu_url
+                         from hsd_prj_menu hpm,
+                              hsd_prj_role hpr,
+                              hsd_prj_role_menu hprm,
+                              hsd_prj_user hpu,
+                              hsd_prj_user_role hpur,
+                              hsd_sys_module_menu hsmm,
+                              hsd_sys_module hsm
+                        where hpm.prj_menu_id=hprm.prj_menu_id
+                        and   hpr.prj_role_id=hprm.prj_role_id
+                        and   hpr.prj_role_id=hpur.prj_role_id
+                        and   hpu.prj_user_id=hpur.prj_user_id
+                        and   hpm.menu_id=hsmm.menu_id
+                        and   hsm.module_id=hsmm.module_id
+                        and   hsm.module_id=6
+                        and   hpu.user_name='".session('userName')."'";
+//执行查询
+        $menu1=Db::query($sql1);
+        $menu2=Db::query($sql2);
+        $menu3=Db::query($sql3);
+        $menu4=Db::query($sql4);
+        $menu5=Db::query($sql5);
+        $menu6=Db::query($sql6);
+
+//向模板传值
+        $this->assign('menu1',$menu1);
+        $this->assign('menu2',$menu2);
+        $this->assign('menu3',$menu3);
+        $this->assign('menu4',$menu4);
+        $this->assign('menu5',$menu5);
+        $this->assign('menu6',$menu6);
+        //模板渲染
+        return $this->fetch('index');
+
     }
     public function sysMenu(){
 
@@ -3149,7 +3264,7 @@ class Index extends Controller
         $this->assign('menu5',$menu5);
         $this->assign('menu6',$menu6);
         //模板渲染
-        return $this->fetch('ctr_server');
+        return $this->fetch('prj_server');
     }
     public function prjSerUser(){
         //拼接sql
@@ -4104,7 +4219,7 @@ class Index extends Controller
         $this->assign('menu5',$menu5);
         $this->assign('menu6',$menu6);
   //模板渲染
-       return $this->fetch('index');
+       return $this->fetch('index_screen');
     }
     public function logout(){
         session('userId',null);

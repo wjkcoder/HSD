@@ -35,24 +35,24 @@
     <link rel="stylesheet" href="{$Think.const.HSD_PATH}js/main/cj/alert/BeAlert.css">
 
     <style type="text/css">
-        .container-fluid ul.data-list{width: 40%;height: 100%;border: 1px solid #e5e5e5;float: left;}
-        .container-fluid ul.data-list li{line-height: 32px;padding: 0px 10px;}
+        .container-fluid ul{margin-left: 0%;}
+        .container-fluid ul.data-list{width: 25%;height: 100%;border: 1px solid #3e8f3e;float: left;overflow: auto}
+        .container-fluid ul.data-list li{line-height: 32px;padding: 5px 0px;list-style-type:none;}
         .container-fluid ul.data-list li:hover{ background-color: #C5EFFF; color: #252525; cursor: pointer; font-weight: bold; }
-        .container-fluid ul.data-list li.selected{ background-color: #0095E8; color: #fff; }
-        .button-box{float: left;width: 19%;height: 50%;margin-top: 20%;}
+        .container-fluid ul.data-list li.selected{ background-color: #3e8f3e; color: #fff; }
+        .button-box{float: left;width: 11%;height: 100%;}
         .button-box button{
-            background: none;
-            font-size: 16px;
-            border: 1px solid #818181;
-            color: #359bf5;height: 36px;
-            line-height: 36px;width: 80%;
-            margin: 10px auto;
+            /*background: #1a1a1a;*/
+            font-size: 15px;
+            border: 5px ;
+            /*color: #359bf5;*/
+            height: 36px;
             display: block;
             cursor: pointer;
         }
     </style>
 </head>
-<body class="large-sidebar fixed-sidebar fixed-header content-appear">
+<body class="large-sidebar fixed-sidebar fixed-header skin-4">
 <div class="wrapper">
 
 
@@ -700,27 +700,41 @@
     </div>
 
     <div class="site-content" style="background: white">
-        <div class="container-fluid">
-                <div class="col-md-8 offset-md-1">
+        <div class="container-fluid" style="background-image: url({$Think.const.HSD_PATH}img/photos-1/s1.jpg)">
+            <div class="col-md-2" style="">
+                <div class="form-group">
+                <select  class="custom-select" id="prj" onchange="select(this)">
+                    <option value="1">1HSD内部测试项目</option>
+                    <option value="2">2HSD内部测试项目</option>
+                </select>
+                </div>
+            </div>
+            <div class="col-md-9" style="background-color: lavenderblush">
                     <button class="btn btn-block btn-info">菜单分配</button>
-                    <ul class="data-list" id="lList">
-                        <li>第一行选择文字1</li>
-                        <li>第二行选择文字2</li>
-                        <li>第三行选择文字3</li>
-                        <li>第四行选择文字4</li>
-                        <li>第五行选择文字5</li>
-                        <li>第六行选择文字6</li>
-                        <li>第一行选择文字7</li>
-                        <li>第二行选择文字8</li>
-                    </ul>
 
-                    <div class="button-box">
-                        <button type="button" name="button" id="add">添 加</button>
-                        <button type="button" name="button" id="remove">删 除</button>
+                    <div style="height: 380px;margin-top: 5%;font-family: 幼圆;font-weight: bold ">
+                        <div>
+                            <ul class="data-list" id="mList"></ul>
+                        </div>
+
+                        <ul class="data-list" id="lList"></ul>
+                        <div class="button-box">
+                            <button class="btn btn-block btn-success" id="add">添加</button>
+                            <button class="btn btn-block btn-danger" id="remove">移除</button>
+
+                            <button class="btn btn-block btn-info" id="addAll">全选</button>
+                            <button class="btn btn-block btn-warning" id="removeAll">全删</button>
+
+
+                            <button class="btn btn-block btn-black" id="save" style="margin-top: 50px">保存</button>
+
+
+
+                        </div>
+
+                        <ul class="data-list" id="rList"></ul>
                     </div>
-                    <ul class="data-list" id="rList">
 
-                    </ul>
                 </div>
         </div>
 
